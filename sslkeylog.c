@@ -54,7 +54,7 @@ static void init_keylog_file(void)
         thread_id = (int)syscall(SYS_gettid);
 #endif
         strcpy(filename_pid, filename);
-        snprintf(&filename_pid[filename_len], MAX_PATH - filename_len, ".%d.%d", (int)getpid(), thread_id);
+	/*        snprintf(&filename_pid[filename_len], MAX_PATH - filename_len, ".%d.%d", (int)getpid(), thread_id); */
         keylog_file_fd = open(filename_pid, O_WRONLY | O_APPEND | O_CREAT, 0644);
         if (keylog_file_fd >= 0 && lseek(keylog_file_fd, 0, SEEK_END) == 0)
         {
